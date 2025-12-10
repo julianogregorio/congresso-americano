@@ -2,12 +2,14 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pickle
 import numpy as np
+import os  # Import necessário para caminhos dinâmicos
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Para permitir chamadas do front-end remoto
 
-
-with open("../ml/model.pkl", "rb") as f:
+# Caminho dinâmico para o modelo ML
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "ml", "model.pkl")
+with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
 
 N_FEATURES = 16  
