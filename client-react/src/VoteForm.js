@@ -14,7 +14,7 @@ function VoteForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://congresso-api-d3bed4cphsapc3ad.canadacentral-01.azurewebsites.net", {
+      const response = await fetch("https://congresso-api-d3bed4cphsapc3ad.canadacentral-01.azurewebsites.net/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ votes })
